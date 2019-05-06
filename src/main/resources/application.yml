@@ -1,0 +1,8 @@
+server:
+  port: 8080
+spring:
+  mvc:
+    favicon:
+      enabled: true
+  thymeleaf:
+    cache: false
