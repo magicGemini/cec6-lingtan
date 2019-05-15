@@ -32,17 +32,21 @@ function w3_close() {
 
 // 加载侧边栏
 function loadMenuBar() {
-    // $.get("/menu/menuBars", function (data) {
-
-    // });
-
     var tree = [
-        {id: 1, text: "菜单1"},
-        {id: 2, text: "菜单2"},
-        {id: 3, text: "菜单3"},
-        {id: 4, text: "菜单4"},
-        {id: 5, text: "菜单5"},
-        {id: 6, text: "菜单6"}
+        {
+            text: "灵探",
+            nodes: [
+                {index: 1, text: "相机管理", href: "/camera_lt"},
+                {index: 2, text: "任务关联", href: "/mission"}
+            ]
+        },
+        {
+            text: "洞鉴",
+            nodes: [
+                {index: 3, text: "相机管理", href: "/camera_dj"},
+                {index: 4, text: "布控关联", href: "/mission"}
+            ]
+        }
     ];
 
     console.log(tree);
