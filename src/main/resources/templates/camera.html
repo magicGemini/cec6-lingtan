@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>洞鉴相机管理</title>
+    <title>灵探 - 相机管理</title>
     <link rel="stylesheet" th:href="@{css/w3.css}"/>
     <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{css/bootstrap-table.css}"/>
@@ -17,7 +17,7 @@
     <script th:src="@{js/bootstrap-treeview.min.js}"></script>
     <!-- custom js -->
     <script th:src="@{js/index.js}"></script>
-    <script th:src="@{js/camera-lt.js}"></script>
+    <script th:src="@{js/camera.js}"></script>
 </head>
 <body>
 <!-- Sidebar -->
@@ -42,7 +42,7 @@
     </ul>
 </nav>
 
-<div>
+<div id="pageContent">
     <!-- table -->
     <div class="container">
         <div id="toolbar">
@@ -98,12 +98,28 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="dept_add_submit" type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="addControl()">确定</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- 删除确认 -->
+    <div id="modal_del" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4 style="text-align: center">确定要删除么？</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="delCamera()">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 

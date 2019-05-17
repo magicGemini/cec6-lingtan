@@ -36,15 +36,15 @@ function loadMenuBar() {
         {
             text: "灵探",
             nodes: [
-                {index: 1, text: "相机管理", href: "/camera_lt"},
+                {index: 1, text: "相机管理", href: "/camera"},
                 {index: 2, text: "任务关联", href: "/mission"}
             ]
         },
         {
             text: "洞鉴",
             nodes: [
-                {index: 3, text: "相机管理", href: "/camera_dj"},
-                {index: 4, text: "布控关联", href: "/mission"}
+                {index: 3, text: "设备管理", href: "/device"},
+                {index: 4, text: "布控关联", href: "/control"}
             ]
         }
     ];

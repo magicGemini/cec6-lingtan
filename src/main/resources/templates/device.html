@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>灵探相机管理</title>
+    <title>洞鉴 - 设备管理</title>
     <link rel="stylesheet" th:href="@{css/w3.css}"/>
     <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{css/bootstrap-table.css}"/>
@@ -17,7 +17,7 @@
     <script th:src="@{js/bootstrap-treeview.min.js}"></script>
     <!-- custom js -->
     <script th:src="@{js/index.js}"></script>
-    <script th:src="@{js/camera-lt.js}"></script>
+    <script th:src="@{js/device.js}"></script>
 </head>
 <body>
 <!-- Sidebar -->
@@ -42,7 +42,7 @@
     </ul>
 </nav>
 
-<div>
+<div id="pageContent">
     <!-- table -->
     <div class="container">
         <div id="toolbar">
@@ -50,7 +50,7 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
             </button>
             <!--<button id="btn_edit" type="button" class="btn btn-default">-->
-                <!--<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改-->
+            <!--<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改-->
             <!--</button>-->
             <button id="btn_del" type="button" class="btn btn-default">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
@@ -75,30 +75,68 @@
                                 <input type="text" class="form-control" id="name"/>
                             </div>
                             <div class="col-md-6">
-                                <label for="streamIP">视频流地址<b style="color: red;">(*)</b></label>
-                                <input type="text" class="form-control" id="streamIP"/>
+                                <label for="vedio_url">视频流地址<b style="color: red;">(*)</b></label>
+                                <input type="text" class="form-control" id="vedio_url"/>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-6">
-                                <label for="longitude">相机经度</label>
-                                <input type="text" class="form-control" id="longitude"/>
+                                <label for="lon">相机经度</label>
+                                <input type="text" class="form-control" id="lon"/>
                             </div>
                             <div class="col-md-6">
-                                <label for="latitude">相机纬度</label>
-                                <input type="text" class="form-control" id="latitude"/>
+                                <label for="lat">相机纬度</label>
+                                <input type="text" class="form-control" id="lat"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label for="device_type">设备类型</label>
+                                <select class="form-control" id="device_type">
+                                    <option value=1>视频流相机</option>
+                                    <option value=2>抓拍机</option>
+                                    <option value=3>视图库相机</option>
+                                    <option value=4>视频平台相机</option>
+                                    <option value=5>人证机集群</option>
+                                    <option value=6>眼镜集群</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="state">开关状态</label>
+                                <input type="checkbox" class="form-control" id="state"/>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <label for="comment">备注</label>
-                                <textarea class="form-control" id="comment" cols="30" rows="10"></textarea>
+                                <label for="position">位置描述</label>
+                                <textarea class="form-control" id="position" cols="30" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label for="note">备注</label>
+                                <textarea class="form-control" id="note" cols="30" rows="10"></textarea>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="dept_add_submit" type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                    <button id="dept_add_submit" type="button" class="btn btn-default" data-dismiss="modal" onclick="addDevice()">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 删除确认 -->
+    <div id="modal_del" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4 style="text-align: center">确定要删除么？</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="delDevice()">确定</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>

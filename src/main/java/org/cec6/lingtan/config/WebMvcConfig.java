@@ -17,9 +17,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/index").setViewName("index");
-        registry.addViewController("/mission").setViewName("mission");
-        registry.addViewController("/camera_dj").setViewName("cameraDJ");
-        registry.addViewController("/camera_lt").setViewName("cameraLT");
+
+        registry.addViewController("/camera").setViewName("camera");   // 灵探 - 相机管理
+        registry.addViewController("/mission").setViewName("mission"); // 灵探 - 任务关联
+
+        registry.addViewController("/device").setViewName("device");   // 洞鉴 - 设备管理
+        registry.addViewController("/control").setViewName("control");   // 洞鉴 - 布控关联
     }
 
 }
