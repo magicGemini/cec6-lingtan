@@ -23,24 +23,22 @@ public class CameraController {
             new Camera("5", "灵探相机-5", "192.168.3.104", "33.58978", "45.21685", "test")
     );
 
-    @GetMapping("/ltCamera/list")
+    @GetMapping("/api/vs/v1/cameras")
     public List<Camera> ltCameraList() {
         return cameraList;
     }
 
-    @PostMapping("/ltCamera/add")
+    @PostMapping("/api/vs/v1/cameras")
     public String addCamera(@RequestBody Camera camera) {
-
         logger.info("create Camera: " + camera);
 
         camera.setId(String.valueOf(cameraList.size() + 1));
-
         cameraList = new ArrayList<>(cameraList);
         cameraList.add(camera);
         return "success";
     }
 
-    @DeleteMapping("/ltCamera/{id}")
+    @DeleteMapping("/api/vs/v1/cameras/{id}")
     public String delCamera(@PathVariable String id) {
         logger.info("delete Camera: " + id);
         cameraList = cameraList.stream().filter(camera -> !camera.getId().equals(id)).collect(Collectors.toList());

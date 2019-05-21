@@ -1,6 +1,6 @@
 function initTable() {
     $('#table').bootstrapTable({
-        url: '/ltCamera/list',
+        url: '/api/vs/v1/cameras',
         toolbar: '#toolbar',
         striped: true,                      //是否显示行间隔色
         cache: false,
@@ -47,7 +47,7 @@ function initTable() {
 function addCamera() {
     $.ajax({
         type: 'POST',
-        url: '/ltCamera/add',
+        url: '/api/vs/v1/cameras',
         contentType: "application/json",
         data: JSON.stringify({
             name: $("#name").val(),
@@ -68,7 +68,7 @@ function addCamera() {
 
 function delCamera() {
     var tobeDeleted = $("#table").bootstrapTable('getAllSelections');
-    var url = "/ltCamera/" + tobeDeleted[0].id;
+    var url = "/api/vs/v1/cameras/" + tobeDeleted[0].id;
 
     $.ajax({
         type: "DELETE",
